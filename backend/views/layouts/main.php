@@ -71,11 +71,11 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>M</b>P</span>
+            <span class="logo-mini"><b>R</b>F</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Msaada-</b>Portal</span>
+            <span class="logo-lg"><b>Rafiki Foundation</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -89,104 +89,7 @@ desired effect
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Languages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag"></i>
 
-                        </a>
-                        <ul class="dropdown-menu">
-
-                            <li>
-                                <!-- inner menu: contains the messages -->
-                                <ul class="menu">
-                                    <?php
-                                    /*$languages=\backend\models\Language::getAll();
-                                    foreach ($languages as $language)
-                                    {
-                                        echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><li style="padding: 10px" id="language">
-                                                <i class="fa fa-angle-double-right"></i>
-                                            '.$language->title.'
-                                            </li></a>';
-                                    }*/
-                                    ?>
-                                </ul><!-- /.menu -->
-                            </li>
-
-                        </ul>
-                    </li><!-- /.Languages-menu -->
-
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-shopping-cart"></i>
-                            <?php
-                           // $incart=Cart::find()->count();
-                            ?>
-
-                        </a>
-
-                        <ul class="dropdown-menu">
-
-
-
-                        </ul>
-
-                    </li><!-- /.messages-menu -->
-
-                    <!-- Notifications Menu -->
-                    <li class="dropdown notifications-menu">
-                        <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell"></i>
-                            <?php
-                            //$less=Inventory::getMinLevelCounts();
-                            ?>
-
-                        </a>
-                        <ul class="dropdown-menu">
-
-
-
-                        </ul>
-                    </li>
-                    <!-- Tasks Menu -->
-                    <li class="dropdown tasks-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
-                            <li>
-                                <!-- Inner menu: contains the tasks -->
-                                <ul class="menu">
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <!-- Task title and progress text -->
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <!-- The progress bar -->
-                                            <div class="progress xs">
-                                                <!-- Change the css width attribute to simulate progress -->
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li><!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
@@ -217,18 +120,6 @@ desired effect
 
                                 </p>
                             </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
-                                </div>
-                            </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
@@ -249,10 +140,7 @@ desired effect
                             </li>
                         </ul>
                     </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -320,14 +208,14 @@ desired effect
                                 ],
                                 [
                                     'visible' => (Yii::$app->user->identity->username == 'admin'),
-                                    "label" => "Payment Method",
-                                    "url" =>["/payment-method/index"],
+                                    "label" => "District",
+                                    "url" =>["/district/index"],
                                     "icon" => "fa fa-angle-double-right",
                                 ],
                                 [
                                     'visible' => (Yii::$app->user->identity->username == 'admin'),
-                                    "label" => "Modules",
-                                    "url" => ["/system-module/index"],
+                                    "label" => "Region",
+                                    "url" => ["/region/index"],
                                     "icon" => "fa fa-angle-double-right",
                                 ],
                                 [
@@ -403,68 +291,9 @@ desired effect
             Powered by Adotech
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; Msaada-Portal <?= date("Y") ?>
+        <strong>Copyright &copy; Rafiki Foundation-Portal <?= date("Y") ?>
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript::;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul><!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript::;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="label label-danger pull-right">70%</span>
-                            </h4>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul><!-- /.control-sidebar-menu -->
-
-            </div><!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div><!-- /.form-group -->
-                </form>
-            </div><!-- /.tab-pane -->
-        </div>
-    </aside><!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
@@ -500,79 +329,18 @@ desired effect
 
     });
 
-</script>
-
-<script>
-    $(document).ready(function(){
-        var id =document.getElementById("purchasemaster-country").value;
-        if(id==1){
-            $( "#rates" ).hide( "slow", function() {
-                //alert( "Animation complete." );
-            });
-        }
-        else if(id==2){
-            $( "#rates" ).show( "slow", function() {
-            });
-        }
-        else if(id==0){
-            $( "#rates" ).show( "slow", function() {
-            });
-        }
-
-
-    });
-
-</script>
-
-<script>
-
-    $("#refresh-form").click(function(){
-
-            window.location.reload(true);
-    });
-
-
-
-
-    $("#pricemaintanance-product_id").change(function(){
-        var id =document.getElementById("pricemaintanance-product_id").value;
+    $("#member-district_id").change(function(){
+        var id ='MD'+document.getElementById("member-district_id").value;
         //alert(id);
-        $.get("<?php echo Yii::$app->urlManager->createUrl(['inventory/price','id'=>'']);?>"+id,function(data) {
+    $.get("<?php echo Yii::$app->urlManager->createUrl(['member/reference','id'=>'']);?>"+id,function(data) {
 
-            //alert(data);
-            document.getElementById("pricemaintanance-old_price").value = data;
-
-        });
+        //alert(data);
+        document.getElementById("member-member_number").value =data;
 
 
     });
 
-    $("#productreturn-product_id").change(function(){
-        var id =document.getElementById("productreturn-product_id").value;
-        //alert(id);
-        $.get("<?php echo Yii::$app->urlManager->createUrl(['inventory/price','id'=>'']);?>"+id,function(data) {
-
-            //alert(data);
-            document.getElementById("productreturn-price").value = data;
-
-        });
-
-
     });
-
-    $("#stockadjustment-product_id").change(function(){
-        var id =document.getElementById("stockadjustment-product_id").value;
-        //alert(id);
-        $.get("<?php echo Yii::$app->urlManager->createUrl(['inventory/qty','id'=>'']);?>"+id,function(data) {
-
-            //alert(data);
-            document.getElementById("stockadjustment-qty").value = data;
-
-        });
-
-
-    });
-
 
 
 </script>

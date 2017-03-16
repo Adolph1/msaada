@@ -51,12 +51,15 @@ class ComposerStaticInita76639f345e92c90ef793ee2927cfb33
         ),
         'k' => 
         array (
+            'kartik\\tabs\\' => 12,
             'kartik\\spinner\\' => 15,
             'kartik\\popover\\' => 15,
+            'kartik\\plugins\\tabs\\' => 20,
             'kartik\\plugins\\popover\\' => 23,
             'kartik\\grid\\' => 12,
             'kartik\\editable\\' => 16,
             'kartik\\dialog\\' => 14,
+            'kartik\\date\\' => 12,
             'kartik\\base\\' => 12,
         ),
         'f' => 
@@ -178,6 +181,10 @@ class ComposerStaticInita76639f345e92c90ef793ee2927cfb33
         array (
             0 => __DIR__ . '/..' . '/microinginer/yii2-dropdown-action-column/src',
         ),
+        'kartik\\tabs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-tabs-x',
+        ),
         'kartik\\spinner\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-spinner',
@@ -185,6 +192,10 @@ class ComposerStaticInita76639f345e92c90ef793ee2927cfb33
         'kartik\\popover\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-popover-x',
+        ),
+        'kartik\\plugins\\tabs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-tabs-x',
         ),
         'kartik\\plugins\\popover\\' => 
         array (
@@ -201,6 +212,10 @@ class ComposerStaticInita76639f345e92c90ef793ee2927cfb33
         'kartik\\dialog\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-dialog',
+        ),
+        'kartik\\date\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-datepicker',
         ),
         'kartik\\base\\' => 
         array (
@@ -302,6 +317,10 @@ class ComposerStaticInita76639f345e92c90ef793ee2927cfb33
             'PHPThumb' => 
             array (
                 0 => __DIR__ . '/..' . '/masterexploder/phpthumb/src',
+            ),
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
         'H' => 

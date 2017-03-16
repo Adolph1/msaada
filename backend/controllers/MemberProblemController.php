@@ -66,7 +66,7 @@ class MemberProblemController extends Controller
         $model = new MemberProblem();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['member/view', 'id' => $model->member_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +85,7 @@ class MemberProblemController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['member/view', 'id' => $model->member_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

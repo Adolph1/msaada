@@ -15,8 +15,10 @@ class m170311_102619_create_member_table extends Migration
         $this->createTable('member', [
             'id' => $this->primaryKey(),
             'member_number'=>$this->string(200)->unique()->notNull(),
+            'district_id'=>$this->integer()->notNull(),
             'first_name'=>$this->string(200)->notNull(),
             'middle_name'=>$this->string(200),
+            'gender'=>$this->char(1),
             'surname'=>$this->string(200)->notNull(),
             'phone_number'=>$this->string(200),
             'date_of_birth'=>$this->date(),

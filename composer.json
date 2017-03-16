@@ -30,7 +30,9 @@
         "kartik-v/yii2-widget-spinner": "@dev",
         "microinginer/yii2-dropdown-action-column": "dev-master",
         "spanjeta/yii2-backup": "*",
-        "phpoffice/phpexcel": "dev-develop"
+        "phpoffice/phpexcel": "dev-develop",
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "kartik-v/yii2-tabs-x": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

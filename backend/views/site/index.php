@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Msaada';
+$this->title = 'Rafiki4U';
 use yii\bootstrap\Html;
 ?>
 <div class="site-index" align="center">
@@ -39,7 +39,7 @@ use yii\bootstrap\Html;
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6" style="margin-left: 100px">
             <div class="row">
-                <div class="col-md-12" style="background: white;color: skyblue;border-left: solid 2px skyblue"><h3> <?= Html::a(Yii::t('app', '<i class="fa fa-plus"></i> New Member'), ['project/create']) ?> </h3></div>
+                <div class="col-md-12" style="background: white;color: skyblue;border-left: solid 2px skyblue"><h3> <?= Html::a(Yii::t('app', '<i class="fa fa-plus"></i> New Member'), ['member/create']) ?> </h3></div>
             </div>
         </div>
 

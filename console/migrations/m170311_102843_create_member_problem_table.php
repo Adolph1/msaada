@@ -16,7 +16,7 @@ class m170311_102843_create_member_problem_table extends Migration
             'id' => $this->primaryKey(),
             'member_id'=>$this->integer(),
             'title'=>$this->string(200)->notNull(),
-            'description'=>$this->string(200),
+            'description'=>$this->text(),
             'start_year'=>$this->char(4)->notNull(),
             'amount_required'=>$this->decimal(),
             'total_donated_amount'=>$this->decimal(),

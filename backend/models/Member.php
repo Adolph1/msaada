@@ -3,7 +3,8 @@
 namespace backend\models;
 
 use Yii;
-
+use yii\web\UploadedFile;
+use yii\bootstrap\Html;
 /**
  * This is the model class for table "member".
  *
@@ -29,6 +30,11 @@ class Member extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public $member_photo;
+    const MALE='M';
+    const FEMALE='F';
+
     public static function tableName()
     {
         return 'member';
@@ -40,9 +46,10 @@ class Member extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['member_number', 'first_name', 'surname'], 'required'],
+            [['member_number', 'first_name', 'gender','surname','district_id'], 'required'],
             [['date_of_birth', 'maker_time'], 'safe'],
-            [['member_number', 'first_name', 'middle_name', 'surname', 'phone_number', 'place_of_birth', 'current_address', 'photo', 'finger_print', 'maker_id'], 'string', 'max' => 200],
+            [['gender'], 'string','max'=>1],
+            [['member_number', 'first_name', 'middle_name', 'surname','phone_number', 'place_of_birth', 'current_address', 'photo', 'finger_print', 'maker_id'], 'string', 'max' => 200],
             [['member_number'], 'unique'],
         ];
     }
@@ -56,8 +63,10 @@ class Member extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'member_number' => Yii::t('app', 'Member Number'),
             'first_name' => Yii::t('app', 'First Name'),
+            'district_id'=>Yii::t('app', 'District'),
             'middle_name' => Yii::t('app', 'Middle Name'),
             'surname' => Yii::t('app', 'Surname'),
+            'gender'=> Yii::t('app', 'Gender'),
             'phone_number' => Yii::t('app', 'Phone Number'),
             'date_of_birth' => Yii::t('app', 'Date Of Birth'),
             'place_of_birth' => Yii::t('app', 'Place Of Birth'),
@@ -83,5 +92,26 @@ class Member extends \yii\db\ActiveRecord
     public function getMemberProblems()
     {
         return $this->hasMany(MemberProblem::className(), ['member_id' => 'id']);
+    }
+    public function getDistrict()
+    {
+        return $this->hasOne(District::className(), ['id' => 'district_id']);
+    }
+
+    public static function getImage($id)
+    {
+        $model=Member::find()->where(['id'=>$id])->one();
+        return Html::img('uploads/' . $model->photo,
+            ['width' => '150px','height'=>'150px','class'=>'img-square']);
+    }
+
+    public static function  calAge($date2,$date1)
+    {
+        $diff = strtotime($date2) - strtotime($date1);
+        $days = $diff / 60 / 60 / 24;
+        $fmt=yii::$app->formatter;
+        return $fmt->asInteger($days/365, 2);
+
+
     }
 }

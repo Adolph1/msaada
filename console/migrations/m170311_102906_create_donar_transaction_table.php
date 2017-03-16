@@ -46,6 +46,17 @@ class m170311_102906_create_donar_transaction_table extends Migration
      */
     public function down()
     {
+
+        $this->dropForeignKey(
+            'fk-donar_transaction-member_id',
+            'donar_transaction'
+        );
+
+        // drops index for column `supplier_id`
+        $this->dropIndex(
+            'idx-donar_transaction-member_id',
+            'donar_transaction'
+        );
         $this->dropTable('donar_transaction');
     }
 }

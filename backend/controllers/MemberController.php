@@ -2,12 +2,15 @@
 
 namespace backend\controllers;
 
+use backend\models\MemberProblem;
 use Yii;
 use backend\models\Member;
 use backend\models\MemberSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\ReferenceIndex;
+use yii\web\UploadedFile;
 
 /**
  * MemberController implements the CRUD actions for Member model.
@@ -51,8 +54,9 @@ class MemberController extends Controller
      */
     public function actionView($id)
     {
+        $problemModel=$this->findProblemModel($id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id),'problemModel'=>$problemModel
         ]);
     }
 
@@ -64,9 +68,23 @@ class MemberController extends Controller
     public function actionCreate()
     {
         $model = new Member();
+        $model->maker_id=Yii::$app->user->identity->username;
+        $model->maker_time=date('Y-m-d:h:i');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->photo = UploadedFile::getInstance($model, 'member_photo');
+            if ($model->photo!=null) {
+                //print_r($model);
+               // exit;
+                $model->photo->saveAs('uploads/'.$model->photo->baseName .'.' . $model->photo->extension);
+                $model->photo=$model->photo->baseName .'.' . $model->photo->extension;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else{
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -120,5 +138,48 @@ class MemberController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function findProblemModel($id)
+    {
+        if (($model = MemberProblem::find()->where(['member_id'=>$id])->one()) !== null) {
+            return $model;
+        } else {
+           $model=new MemberProblem();
+           return $model;
+        }
+    }
+
+
+    public function actionReference($id)
+    {
+        $reference = ReferenceIndex::find()
+            ->where(['code' => $id])
+            ->orderBy('code DESC')
+            ->one();
+
+        if ($reference != null) {
+
+
+            $reference->last_index =sprintf("%04d", $reference->last_index + 1);
+
+            $reference->last_reference = $id .'-' .$reference->last_index;
+            $reference->save();
+            echo $reference->last_reference;
+
+
+
+        }
+        else {
+
+            $model = new ReferenceIndex();
+            $model->last_index = '0001';
+            $model->code = $id;
+            $model->last_reference =  $id .'-'. $model->last_index;
+            $model->save();
+            echo $model->last_reference;
+
+        }
+
     }
 }

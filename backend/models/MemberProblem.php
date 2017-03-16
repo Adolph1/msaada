@@ -25,6 +25,9 @@ class MemberProblem extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    const PENDING=0;
+    const CLOSED=1;
+
     public static function tableName()
     {
         return 'member_problem';
